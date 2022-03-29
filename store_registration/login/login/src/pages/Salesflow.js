@@ -6,6 +6,7 @@ import { Col, Container, Row, NavDropdown } from 'react-bootstrap';
 import Login from './Login';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import UserDetails from './UserProfile';
+import Logout from './Logout';
 
 
 function Salesflow() {
@@ -19,6 +20,8 @@ function Salesflow() {
     return (
 
         <div className='back'>
+            <br />
+            <Logout />
             <Router>
 
                 <Row>
@@ -35,14 +38,11 @@ function Salesflow() {
                             <br /><br /><br />
                             <Link to="/sales/supply" className="nav-link">Supply </Link><br /><br />
                             <Link to="/sales/expense" className="nav-link">Expenses </Link><br /><br />
-                            <Link to="/sales/help" className="nav-link">Help </Link><br /><br />
-                            <Link to="/Login" className='nav-link'>Logout</Link><br /><br /><br />
-
+                            <Link to="/sales/help" className="nav-link">Help </Link><br /><br /><br />
                         </nav>
 
                     </Col>
                     <Col md={8}>
-
                         <div className="SalesFlow">
 
                             <Route path="/sales/profile/:id" exact component={UserDetails} />
