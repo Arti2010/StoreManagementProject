@@ -49,7 +49,6 @@ const UserProfile = () => {
         <hr />
         <br />
         <div>
-
           <table style={{ width: '80%', fontSize: '25px', fontFamily: 'serif' }} >
             <thead className="thead-dark">
               {/* <tr>
@@ -78,7 +77,7 @@ const UserProfile = () => {
                
             </tbody> */}
               <tr>
-                <th style={{ backgroundColor: '0a99af' }}>FirstName</th>
+                <th>FirstName</th>
                 <td>{user.firstName}</td>
               </tr>
               <tr>
@@ -99,7 +98,6 @@ const UserProfile = () => {
               </tr>
             </thead>
           </table>
-
         </div>
       </div>
 
