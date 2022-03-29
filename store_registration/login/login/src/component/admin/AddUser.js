@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useHistory, useParams } from "react-router-dom";
 import { useEffect } from "react/cjs/react.development";
+import Adminflow from "../../pages/Adminflow";
 import userService from "../../service/UserService";
 
 const AddUser = () => {
@@ -59,78 +60,81 @@ const AddUser = () => {
         }
     }, [])
     return (
-        <div className="container">
-            <h3>Add user</h3>
-            <hr />
-            <form>
-                <div className="form-group">
-                    <input
-                        type="text"
-                        className="form-control col-4"
-                        id="firstName"
-                        value={firstName}
-                        onChange={(e) => setfirstName(e.target.value)}
-                        placeholder="Enter fname" autoComplete="off"
-                    />
+        <div>
+            <Adminflow />
+            <div className="container">
+                <h3>Add user</h3>
+                <hr />
+                <form>
+                    <div className="form-group">
+                        <input
+                            type="text"
+                            className="form-control col-4"
+                            id="firstName"
+                            value={firstName}
+                            onChange={(e) => setfirstName(e.target.value)}
+                            placeholder="Enter fname" autoComplete="off"
+                        />
 
-                </div>
-                <div className="form-group">
-                    <input
-                        type="text"
-                        className="form-control col-4"
-                        id="lastName"
-                        value={lastName}
-                        onChange={(e) => setlastName(e.target.value)}
-                        placeholder="Enter lname" autoComplete="off"
-                    />
+                    </div>
+                    <div className="form-group">
+                        <input
+                            type="text"
+                            className="form-control col-4"
+                            id="lastName"
+                            value={lastName}
+                            onChange={(e) => setlastName(e.target.value)}
+                            placeholder="Enter lname" autoComplete="off"
+                        />
 
-                </div>
-                <div className="form-group">
-                    <input
-                        type="text"
-                        className="form-control col-4"
-                        id="email"
-                        value={email}
-                        onChange={(e) => setemail(e.target.value)}
-                        placeholder="Enter email" autoComplete="off"
-                    />
-                </div>
-                <div className="form-group">
-                    <input
-                        type="password"
-                        className="form-control col-4"
-                        id="password"
-                        value={password}
-                        onChange={(e) => setpassword(e.target.value)}
-                        placeholder="Enter password" autoComplete="off"
-                    />
-                </div>
-                <div className="form-group">
-                    <input
-                        type="number"
-                        className="form-control col-4"
-                        id="phone"
-                        value={phone}
-                        onChange={(e) => setphone(e.target.value)}
-                        placeholder="Enter phone" autoComplete="off"
-                    />
-                </div>
-                <div className="form-group">
-                    <input
-                        type="text"
-                        className="form-control col-4"
-                        id="role"
-                        value={role}
-                        onChange={(e) => setrole(e.target.value)}
-                        placeholder="Enter role" autoComplete="off"
-                    />
-                </div>
-                <div >
-                    <button onClick={(e) => saveUser(e)} className="btn btn-primary">Save</button>
-                </div>
-            </form>
-            <hr />
-            <Link to="/api/admin">Back to List</Link>
+                    </div>
+                    <div className="form-group">
+                        <input
+                            type="text"
+                            className="form-control col-4"
+                            id="email"
+                            value={email}
+                            onChange={(e) => setemail(e.target.value)}
+                            placeholder="Enter email" autoComplete="off"
+                        />
+                    </div>
+                    <div className="form-group">
+                        <input
+                            type="password"
+                            className="form-control col-4"
+                            id="password"
+                            value={password}
+                            onChange={(e) => setpassword(e.target.value)}
+                            placeholder="Enter password" autoComplete="off"
+                        />
+                    </div>
+                    <div className="form-group">
+                        <input
+                            type="number"
+                            className="form-control col-4"
+                            id="phone"
+                            value={phone}
+                            onChange={(e) => setphone(e.target.value)}
+                            placeholder="Enter phone" autoComplete="off"
+                        />
+                    </div>
+                    <div className="form-group">
+                        <input
+                            type="text"
+                            className="form-control col-4"
+                            id="role"
+                            value={role}
+                            onChange={(e) => setrole(e.target.value)}
+                            placeholder="Enter role" autoComplete="off"
+                        />
+                    </div>
+                    <div >
+                        <button onClick={(e) => saveUser(e)} className="btn btn-primary">Save</button>
+                    </div>
+                </form>
+                <hr />
+                <Link to="/api/admin">Back to List</Link>
+            </div>
         </div>
     )
 }

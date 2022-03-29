@@ -9,7 +9,7 @@ import Login from './pages/Login';
 import Contact from './pages/Contact';
 import Register from './pages/Register';
 import Footer from './component/Footer'
-import Adminflow from './pages/Adminflow';
+import AdminHome from './pages/AdminHome';
 import Salesflow from './pages/Salesflow';
 import Supplierflow from './pages/Supplierflow';
 import userList from "./component/admin/UserList"
@@ -27,13 +27,13 @@ function App() {
                     <Route path="/contact" exact component={Contact} />
                     <Route path="/Login" exact component={Login} />
                     <Route path="/Signup" exact component={Register} />
-                    <Route path="/adminflow" exact component={Adminflow} />
+                    <Route path="/adminflow" exact component={AdminHome} />
                     <Route path="/salesflow" exact component={Salesflow} />
                     <Route path="/supplierflow" exact component={Supplierflow} />
                     <Route exact path="/api/admin" component={userList} />
                     <Route path="/admin/add" component={adduser} />
                     <Route path="/users/edit/:id" component={adduser} />
-                    <Route path="/sales/profile/:id" component={{Salesflow}} />
+                    <Route path="/sales/profile/:id" component={{ Salesflow }} />
 
                 </Switch>
                 <Footer />

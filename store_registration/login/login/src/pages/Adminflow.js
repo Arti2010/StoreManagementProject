@@ -13,20 +13,12 @@ function Adminflow() {
             <div className='navbar'>
                 <AdminPanelSettingsIcon fontSize='large' sx={{ color: 'white' }} />
                 <div className='rightSide'>
+                    <Link to="/adminflow">Home</Link>
                     <Link to="/api/admin">Add User</Link>
                     <Link to="/Login">Logout</Link>
                 </div>
             </div>
-            <div className="container">
-                <br />
-                <div className='jumbotron img-jumbo'>
 
-                    <h1>Welcome to Admin Page</h1>  <br /><br /><br />
-                    <br /><br /><br />
-                    <br /><br /><br /><br /><br /><br />
-
-                </div>
-            </div>
         </div>
 
 
