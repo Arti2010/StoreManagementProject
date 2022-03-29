@@ -1,0 +1,10 @@
+.sidebar {
+  height: 80%;
+  width: 300px;
+  background-color: rgb(47, 87, 87);
+}
+
+.img-jumbo {
+  background-image: url("https://thumbs.dreamstime.com/z/supermarket-aisle-blurred-background-laptop-computer-shopping-cart-wood-table-grocery-online-concept-supermarket-aisle-158710026.jpg");
+  background-size: 80%, 80%;
+}
