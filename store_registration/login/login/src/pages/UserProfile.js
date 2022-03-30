@@ -51,31 +51,6 @@ const UserProfile = () => {
         <div>
           <table style={{ width: '80%', fontSize: '25px', fontFamily: 'serif' }} >
             <thead className="thead-dark">
-              {/* <tr>
-                <th>FirstName</th>
-                <th>LastName</th>
-                <th>Email</th>
-                <th>Password</th>
-                <th>Role</th>
-                <th>Phone</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              
-               <tr>
-                    <td>{user.firstName}</td>
-                    <td>{user.lastName}</td>
-                    <td>{user.email}</td>
-                    <td>{user.password}</td>
-                    <td>{user.role}</td>
-                    <td>{user.phone}</td>
-                    <td>
-                     
-                    </td>
-                  </tr>
-               
-            </tbody> */}
               <tr>
                 <th>FirstName</th>
                 <td>{user.firstName}</td>
