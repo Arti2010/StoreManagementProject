@@ -9,10 +9,17 @@ import Contact from './pages/Contact';
 import Register from './pages/Register';
 import Footer from './component/Footer'
 import AdminHome from './pages/AdminHome';
-import Salesflow from './pages/Salesflow';
-import Supplierflow from './pages/Supplierflow';
+import SalesHome from './pages/SalesHome';
+import SupplierHome from './pages/SupplierHome';
 import userList from "./component/admin/UserList"
 import adduser from "./component/admin/AddUser"
+import UserDetails from './pages/UserProfile';
+import categoryDetails from './pages/CategoryDetails';
+import ProductDetails from './pages/ProductDetails';
+import addOrUpdateProduct from './pages/AddOrUpdateProduct'
+import AddCategory from './pages/AddCategory';
+import UpdateUser from './pages/UpdateUser';
+import Help from './pages/Help';
 
 function App() {
     return (
@@ -26,12 +33,20 @@ function App() {
                     <Route path="/Login" exact component={Login} />
                     <Route path="/Signup" exact component={Register} />
                     <Route path="/adminflow" exact component={AdminHome} />
-                    <Route path="/salesflow" exact component={Salesflow} />
-                    <Route path="/supplierflow" exact component={Supplierflow} />
+                    <Route path="/salesflow" exact component={SalesHome} />
+                    <Route path="/supplierflow" exact component={SupplierHome} />
                     <Route exact path="/api/admin" component={userList} />
                     <Route path="/admin/add" component={adduser} />
                     <Route path="/users/edit/:userId" component={adduser} />
                     {/* <Route path="/sales/profile/:id" component={{ Salesflow }} /> */}
+                    <Route path="/sales/profile/:id" exact component={UserDetails} />
+                    <Route path="/sales/category" exact component={categoryDetails} />
+                    <Route path="/sales/cat-prod/:catId" component={ProductDetails} />
+                    <Route path="/sales/product/add" component={addOrUpdateProduct} />
+                    <Route path="/sales/product/update/:productId" component={addOrUpdateProduct} />
+                    <Route path="/sales/category/add" exact component={AddCategory} />
+                    <Route path="/salesman/user/update/:userId" exact component={UpdateUser} />
+                    <Route path="/sales/help" exact component={Help} />
 
                 </Switch>
                 <Footer />

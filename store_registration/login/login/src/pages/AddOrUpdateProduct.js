@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useHistory, useParams } from "react-router-dom";
 import { useEffect } from "react/cjs/react.development";
 import SalesmanService from "../service/SalesmanService";
+import Salesflow from "./Salesflow";
 
 const AddOrUpdateProduct = () => {
     const [id, setId] = useState('');
@@ -92,73 +93,75 @@ const AddOrUpdateProduct = () => {
     }, [])
 
     return (
-        <div className="container">
-            <h3>Add Product</h3>
-            <hr />
-            <form>
-                <div className="form-group">
-                    <input
-                        type="text"
-                        className="form-control col-4"
-                        id="prodDesc"
-                        value={prodDesc}
-                        onChange={(e) => setprodDesc(e.target.value)}
-                        placeholder="Enter prodDesc" autoComplete="off"
-                    />
+        <div>
+            <Salesflow />
+            <div className="container">
+                <h3>Add Product</h3>
+                <hr />
+                <form>
+                    <div className="form-group">
+                        <input
+                            type="text"
+                            className="form-control col-4"
+                            id="prodDesc"
+                            value={prodDesc}
+                            onChange={(e) => setprodDesc(e.target.value)}
+                            placeholder="Enter prodDesc" autoComplete="off"
+                        />
 
-                </div>
-                <div className="form-group">
-                    <input
-                        type="number"
-                        className="form-control col-4"
-                        id="prodPrice"
-                        value={prodPrice}
-                        onChange={(e) => setprodPrice(e.target.value)}
-                        placeholder="Enter prodPrice" autoComplete="off"
-                    />
+                    </div>
+                    <div className="form-group">
+                        <input
+                            type="number"
+                            className="form-control col-4"
+                            id="prodPrice"
+                            value={prodPrice}
+                            onChange={(e) => setprodPrice(e.target.value)}
+                            placeholder="Enter prodPrice" autoComplete="off"
+                        />
 
-                </div>
-                <div className="form-group">
-                    <input
-                        type="number"
-                        className="form-control col-4"
-                        id="prodQty"
-                        value={prodQty}
-                        onChange={(e) => setprodQty(e.target.value)}
-                        placeholder="Enter prodQty" autoComplete="off"
-                    />
-                </div>
-                <div className="form-group">
-                    <input
-                        type="text"
-                        className="form-control col-4"
-                        id="productName"
-                        value={productName}
-                        onChange={(e) => setproductName(e.target.value)}
-                        placeholder="Enter productName" autoComplete="off"
-                    />
-                </div>
-                <div className="form-group">
-                    <input
-                        type="number"
-                        className="form-control col-4"
-                        id="discount"
-                        value={discount}
-                        onChange={(e) => setdiscount(e.target.value)}
-                        placeholder="Enter discount" autoComplete="off"
-                    />
-                </div>
-                <div className="form-group">
-                    <input
-                        type="number"
-                        className="form-control col-4"
-                        id="finalPrice"
-                        value={finalPrice}
-                        onChange={(e) => setfinalPrice(e.target.value)}
-                        placeholder="Enter finalPrice" autoComplete="off"
-                    />
-                </div>
-                {/* <div className="form-group">
+                    </div>
+                    <div className="form-group">
+                        <input
+                            type="number"
+                            className="form-control col-4"
+                            id="prodQty"
+                            value={prodQty}
+                            onChange={(e) => setprodQty(e.target.value)}
+                            placeholder="Enter prodQty" autoComplete="off"
+                        />
+                    </div>
+                    <div className="form-group">
+                        <input
+                            type="text"
+                            className="form-control col-4"
+                            id="productName"
+                            value={productName}
+                            onChange={(e) => setproductName(e.target.value)}
+                            placeholder="Enter productName" autoComplete="off"
+                        />
+                    </div>
+                    <div className="form-group">
+                        <input
+                            type="number"
+                            className="form-control col-4"
+                            id="discount"
+                            value={discount}
+                            onChange={(e) => setdiscount(e.target.value)}
+                            placeholder="Enter discount" autoComplete="off"
+                        />
+                    </div>
+                    <div className="form-group">
+                        <input
+                            type="number"
+                            className="form-control col-4"
+                            id="finalPrice"
+                            value={finalPrice}
+                            onChange={(e) => setfinalPrice(e.target.value)}
+                            placeholder="Enter finalPrice" autoComplete="off"
+                        />
+                    </div>
+                    {/* <div className="form-group">
                      <input
                         type="number"
                         className="form-control col-4"
@@ -168,13 +171,14 @@ const AddOrUpdateProduct = () => {
                         placeholder="catid" autoComplete="off"
                     /> 
                 </div>   */}
-                <div >
-                    <button onClick={(e) => saveProduct(e)} className="btn btn-primary">Save</button>
-                </div>
-            </form>
-            <hr />
-            <Link to={`/sales/category`}>Back to List</Link>
-            {/* <button onClick={history.push('/sales/cat-prod/'+x)} className="btn btn-primary">Back to List</button> */}
+                    <div >
+                        <button onClick={(e) => saveProduct(e)} className="btn btn-primary">Save</button>
+                    </div>
+                </form>
+                <hr />
+                <Link to={`/sales/category`}>Back to List</Link>
+                {/* <button onClick={history.push('/sales/cat-prod/'+x)} className="btn btn-primary">Back to List</button> */}
+            </div>
         </div>
     )
 }

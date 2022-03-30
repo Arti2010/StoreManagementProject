@@ -4,6 +4,7 @@ import { useEffect } from "react/cjs/react.development";
 import { Link, useHistory, useParams } from 'react-router-dom';
 import SalesmanService from '../service/SalesmanService';
 import PersonIcon from '@material-ui/icons/Person';
+import Salesflow from './Salesflow';
 
 
 const UserProfile = () => {
@@ -36,9 +37,9 @@ const UserProfile = () => {
   }, []
   )
   return (
-    <>
-
-      <div  >
+    <div>
+      <Salesflow />
+      <div className='container'>
         <br /><br /><br /><br />
         <div className='navbar_sale'>
           <h3><PersonIcon fontSize='large' />
@@ -76,7 +77,7 @@ const UserProfile = () => {
         </div>
       </div>
       <Link to={`/salesman/user/update/${user.id}`}>Update </Link>
-    </>
+    </div>
 
   );
 }
