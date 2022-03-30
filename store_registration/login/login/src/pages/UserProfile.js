@@ -100,7 +100,7 @@ const UserProfile = () => {
           </table>
         </div>
       </div>
-
+      <Link to={`/salesman/user/update/${user.id}`}>Update </Link>
     </>
 
   );

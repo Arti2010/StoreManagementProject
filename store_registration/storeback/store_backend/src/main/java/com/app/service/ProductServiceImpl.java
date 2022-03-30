@@ -21,6 +21,9 @@ public class ProductServiceImpl implements IProductService{
 	private ProductRepo productRepo;
 	@Autowired
     private CategoryRepo catRepo;
+	
+	@Autowired
+	private ICategoryService  catService;
 
 	@Override
 	public List<Product> getAllProduct() {
@@ -30,6 +33,9 @@ public class ProductServiceImpl implements IProductService{
 	@Override
 	public Product UpdateProductDetails(Product e) {
 		// TODO Auto-generated method stub
+		Category c = catService.findByProductId(e.getId());
+//		catRepo.save(c);
+		e.setProCat(c);
 		return productRepo.save(e);
 	}
 
@@ -37,7 +43,7 @@ public class ProductServiceImpl implements IProductService{
 	public Product addOrUpdateProductDetails(Product e,int catId) {
 	
 		Category c=catRepo.findById(catId).orElseThrow(() -> new ResourceNotFoundException("catId by ID " + catId + " not found!!!!"));
-		e.setProductCategory(c);// TODO Auto-generated method stub
+		e.setProCat(c);;// TODO Auto-generated method stub
 		return productRepo.save(e);
 	}
 
@@ -54,5 +60,12 @@ public class ProductServiceImpl implements IProductService{
 		return productRepo.findById(productId).orElseThrow( () -> new ResourceNotFoundException("Product by ID " + productId + " not found!!!!"));
 	}
 	
+	@Override
+	public List<Product> findProductByCatId(int catId){
+		
+		
+		return productRepo.findByProCatId(catId);
+		
+	}
 
 }

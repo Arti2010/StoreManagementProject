@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Navigation from './component/Navigation';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from './pages/Home';
 import About from './pages/About';
@@ -14,7 +13,6 @@ import Salesflow from './pages/Salesflow';
 import Supplierflow from './pages/Supplierflow';
 import userList from "./component/admin/UserList"
 import adduser from "./component/admin/AddUser"
-import UserDetails from "./pages/UserProfile"
 
 function App() {
     return (
@@ -32,8 +30,8 @@ function App() {
                     <Route path="/supplierflow" exact component={Supplierflow} />
                     <Route exact path="/api/admin" component={userList} />
                     <Route path="/admin/add" component={adduser} />
-                    <Route path="/users/edit/:id" component={adduser} />
-                    <Route path="/sales/profile/:id" component={{ Salesflow }} />
+                    <Route path="/users/edit/:userId" component={adduser} />
+                    {/* <Route path="/sales/profile/:id" component={{ Salesflow }} /> */}
 
                 </Switch>
                 <Footer />

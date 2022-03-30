@@ -1,11 +1,15 @@
 package com.app.pojos;
 
+
+
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
@@ -28,8 +32,11 @@ public class Supplier  extends BaseEntity{
 	@MapsId
 	private User user;
 	
-
 	
+	@ManyToMany
+	private Set<Product> product=new HashSet<>();
+
+
 	private String description;
 	
 }

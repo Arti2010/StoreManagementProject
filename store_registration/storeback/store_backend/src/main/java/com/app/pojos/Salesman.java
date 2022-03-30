@@ -17,8 +17,9 @@ import lombok.NoArgsConstructor;
 public class Salesman extends BaseEntity{
 	private String storeName;
 	private String description;
+	
+	
 	@OneToOne
-
 	@JoinColumn(name="salseman_id"	,nullable=false)
 	@MapsId
 	private User user;

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -23,7 +24,7 @@ public class Category extends BaseEntity {
 	private String catDesc;
 	
 
-	@OneToMany(mappedBy ="productCategory",orphanRemoval = true )
+	@OneToMany(mappedBy ="proCat",orphanRemoval = true,fetch = FetchType.EAGER )
 	private List<Product> product= new ArrayList<>();;
 
 }

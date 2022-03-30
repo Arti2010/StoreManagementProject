@@ -5,6 +5,8 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
@@ -34,6 +36,11 @@ public class Product extends BaseEntity{
 	private int discount;
 	private double finalPrice;
 	
+	@JsonIgnore
+	@Enumerated(EnumType.STRING)
+	@Column(length = 20)
+	private Status status;
+	
 	public Product(String prodDesc,int prodPrice,int prodQty,String productName,int discount,double finalPrice) {
 	  this.prodDesc=prodDesc;
 	  this.prodPrice=prodPrice;
@@ -46,7 +53,7 @@ public class Product extends BaseEntity{
     @JsonIgnore
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "category_id", nullable = true)
-	private Category productCategory;
+	private Category proCat;
 	
     @JsonIgnore
 	@ManyToMany

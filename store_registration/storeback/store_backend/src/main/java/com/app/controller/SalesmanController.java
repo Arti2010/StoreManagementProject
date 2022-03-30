@@ -14,9 +14,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.app.dto.ProductCat;
+import com.app.pojos.Category;
 import com.app.pojos.Product;
 import com.app.pojos.User;
+import com.app.service.ICategoryService;
 import com.app.service.IProductService;
+import com.app.service.ISupplierService;
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/api/salesman/")
@@ -24,8 +28,25 @@ public class SalesmanController {
 	@Autowired
 	private IProductService productService;
 	
+	@Autowired
+	private ICategoryService categoryService;
+	
+	@Autowired
+	private ISupplierService supplierService;
+	
 	public SalesmanController() {
 		System.out.println("in constructor of"+getClass());
+	}
+	@GetMapping("/category")
+	public ResponseEntity<?> getCategoryDetails() {
+		System.out.println("in get all category");
+		return new ResponseEntity<>(categoryService.getAllCategory(), HttpStatus.OK);
+	}
+	@GetMapping("/category/{catId}")
+	public ResponseEntity<?> getProductByCategoryName(@PathVariable int catId){
+		System.out.println("in get all Product by category id");
+		return new ResponseEntity<>(categoryService.getAllProductByCategoryName(catId), HttpStatus.OK);
+		
 	}
 	
 	@GetMapping("/products")
@@ -34,17 +55,17 @@ public class SalesmanController {
 		return new ResponseEntity<>(productService.getAllProduct(), HttpStatus.OK);
 	}
 	@PostMapping("/products/save")
-	public Product addProduct(@RequestParam String prodDesc,@RequestParam int prodPrice,@RequestParam int prodQty,@RequestParam String productName,@RequestParam int discount,@RequestParam double finalPrice,@RequestParam int catId) // de-serial (un marshalling)
-	{
-       Product e =new Product(prodDesc,prodPrice,prodQty,productName,discount,finalPrice);
-		System.out.println("in add product " + e);
-		return productService.addOrUpdateProductDetails(e,catId);
+	public Product addProduct(@RequestBody ProductCat p) {
+       Product e =new Product(p.getProdDesc(),p.getProdPrice(),p.getProdQty(),p.getProductName(),p.getDiscount(),p.getFinalPrice());
+		System.out.println(e);
+       System.out.println("in add product " + e);
+		return productService.addOrUpdateProductDetails(e,p.getCatId());
 	}
 
 	// add request handling method to delete emp details by emp id
 	// Request URL sent by front end : http://host:port/api/employees/1234 ,
 	// method=DELETE
-	@DeleteMapping("/products/{id}")
+	@DeleteMapping("/products/delete/{id}")
 	public String deleteProductDetails(@PathVariable int id) {
 		System.out.println("in del product dtls " + id);
 		return productService.deleteProductDetails(id);
@@ -75,5 +96,37 @@ public class SalesmanController {
 		return productService.UpdateProductDetails(e);
 		
 	}
+	
+	@PostMapping("/category/save")
+	public Category saveCategory(@RequestBody Category e) // de-serial (un marshalling)
+	{
+		// e : DETACHED POJO , containing updated state
+		System.out.println("in save category " + e);
+		return categoryService.saveCategory(e);
+		
+	}
+	@PostMapping("/category/update")
+	public Category updateCategory(@RequestBody Category e) // de-serial (un marshalling)
+	{
+		// e : DETACHED POJO , containing updated state
+		System.out.println("in update category " + e);
+		return categoryService.updateCategory(e);
+		
+	}
+	
+	@DeleteMapping("/category/delete/{id}")
+	public String deletecategoryDetails(@PathVariable int id) {
+		System.out.println("in del category dtls " + id);
+		return categoryService.deleteCategoryDetails(id);
+	}
+	
+	
+	@GetMapping("/salesman/user/supplier")
+	public ResponseEntity<?> getSupplierDetails() {
+		System.out.println("in get all supplier");
+		return new ResponseEntity<>(supplierService.getAllSupplier(), HttpStatus.OK);
+	} 
+	
+	
 	
 }

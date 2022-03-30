@@ -3,7 +3,7 @@ package com.app.service;
 import java.util.List;
 
 import com.app.pojos.Product;
-import com.app.pojos.User;
+
 public interface IProductService {
 
 	List<Product> getAllProduct();
@@ -16,7 +16,7 @@ public interface IProductService {
 
 	Product UpdateProductDetails(Product e);
 
-
+	List<Product> findProductByCatId(int catId);
 
 	
 

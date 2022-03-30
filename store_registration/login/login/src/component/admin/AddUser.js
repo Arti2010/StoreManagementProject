@@ -5,6 +5,7 @@ import Adminflow from "../../pages/Adminflow";
 import userService from "../../service/UserService";
 
 const AddUser = () => {
+    const [id, setId] = useState('');
     const [firstName, setfirstName] = useState('');
     const [lastName, setlastName] = useState('');
     const [email, setemail] = useState('');
@@ -14,13 +15,13 @@ const AddUser = () => {
 
 
     const history = useHistory();
-    const { id } = useParams();
+    const { userId } = useParams();
 
     const saveUser = (e) => {
         e.preventDefault();
 
-        const user = { firstName, lastName, email, role, password, phone };
-        if (id) {
+        const user = { id, firstName, lastName, email, role, password, phone };
+        if (userId) {
             //update
             userService.update(user)
                 .then(response => {
@@ -44,9 +45,10 @@ const AddUser = () => {
     }
 
     useEffect(() => {
-        if (id) {
-            userService.get(id)
+        if (userId) {
+            userService.get(userId)
                 .then(user => {
+                    setId(userId);
                     setfirstName(user.data.firstName);
                     setlastName(user.data.lastName);
                     setemail(user.data.email);

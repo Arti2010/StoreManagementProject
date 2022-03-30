@@ -2,10 +2,14 @@ import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
 
 import '../styles/Salesflow.css';
-import { Col, Container, Row, NavDropdown } from 'react-bootstrap';
-import Login from './Login';
+import { Col, Row } from 'react-bootstrap';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import UserDetails from './UserProfile';
+import categoryDetails from './CategoryDetails';
+import ProductDetails from './ProductDetails';
+import addOrUpdateProduct from './AddOrUpdateProduct'
+import AddCategory from './AddCategory';
+import UpdateUser from './UpdateUser';
 import Logout from './Logout';
 
 
@@ -31,10 +35,11 @@ function Salesflow() {
                         <nav className="nav flex-column">
                             <br />
                             <Link to={`/sales/profile/${id}`} className="nav-link">Show Profile </Link><br />
-                            <NavDropdown title="Stock" id="collasible-nav-dropdown">
+                            {/* <NavDropdown title="Stock" id="collasible-nav-dropdown">
                                 <NavDropdown.Item href="/sales/category">Category</NavDropdown.Item>
                                 <NavDropdown.Item href="/sales/product">Product</NavDropdown.Item>
-                            </NavDropdown>
+                            </NavDropdown> */}
+                            <Link to="/sales/category" className="nav-link">Stock </Link>
                             <br /><br /><br />
                             <Link to="/sales/supply" className="nav-link">Supply </Link><br /><br />
                             <Link to="/sales/expense" className="nav-link">Expenses </Link><br /><br />
@@ -46,6 +51,12 @@ function Salesflow() {
                         <div className="SalesFlow">
 
                             <Route path="/sales/profile/:id" exact component={UserDetails} />
+                            <Route path="/sales/category" exact component={categoryDetails} />
+                            <Route path="/sales/cat-prod/:catId" component={ProductDetails} />
+                            <Route path="/sales/product/add" component={addOrUpdateProduct} />
+                            <Route path="/sales/product/update/:productId" component={addOrUpdateProduct} />
+                            <Route path="/sales/category/add" exact component={AddCategory} />
+                            <Route path="/salesman/user/update/:userId" exact component={UpdateUser} />
 
 
                         </div> </Col>
