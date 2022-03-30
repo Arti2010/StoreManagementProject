@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useHistory, Redirect } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import '../styles/Form.css';
 import userService from "../service/UserService"
 import Navigation from "../component/Navigation";

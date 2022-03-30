@@ -13,6 +13,7 @@ function Footer() {
         <p><b className="copy">&copy; Copyright IACSD PG-DAC SEPT-2021</b>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<InstagramIcon /><TwitterIcon /><FacebookIcon /><LinkedInIcon /></p>
       </div>
     </div>
+
   );
 }
 export default Footer;
