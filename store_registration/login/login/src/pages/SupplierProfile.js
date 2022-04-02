@@ -4,7 +4,6 @@ import { useEffect } from "react/cjs/react.development";
 import { Link, useHistory, useParams } from 'react-router-dom';
 import SalesmanService from '../service/SalesmanService';
 import PersonIcon from '@material-ui/icons/Person';
-import Salesflow from './Salesflow';
 import Supplierflow from './Supplierflow'
 
 
@@ -39,46 +38,49 @@ const SupplierProfile = () => {
   )
   return (
     <div>
-       <Supplierflow />
+      <Supplierflow />
       <div className='container'>
-        <br /><br /><br /><br />
-        <div className='navbar_sale'>
-          <h3><PersonIcon fontSize='large' />
-
-            Supplier Profile</h3>
-          <br />
-        </div>
-        <hr />
         <br />
-        <div>
-          <table style={{ width: '80%', fontSize: '25px', fontFamily: 'serif' }} >
-            <thead className="thead-dark">
-              <tr>
-                <th>FirstName</th>
-                <td>{user.firstName}</td>
-              </tr>
-              <tr>
-                <th>LastName</th>
-                <td>{user.lastName}</td>
-              </tr>
-              <tr>
-                <th>Email</th>
-                <td>{user.email}</td>
-              </tr>
-              <tr>
-                <th>Role</th>
-                <td>{user.role}</td>
-              </tr>
-              <tr>
-                <th>Phone</th>
-                <td>{user.phone}</td>
-              </tr>
-            </thead>
-          </table>
+        <div className='jumbotron' style={{ backgroundColor: "rgb(188 213 217)" }}>
+          <br /><br />
+          <div className='navbar_sale'>
+            <h3><PersonIcon fontSize='large' />
+
+              Supplier Profile</h3>
+            <br />
+          </div>
+          <hr />
+          <br />
+          <div>
+            <table style={{ width: '80%', fontSize: '25px', fontFamily: 'serif' }} >
+              <thead className="thead-dark">
+                <tr>
+                  <th>FirstName</th>
+                  <td>{user.firstName}</td>
+                </tr>
+                <tr>
+                  <th>LastName</th>
+                  <td>{user.lastName}</td>
+                </tr>
+                <tr>
+                  <th>Email</th>
+                  <td>{user.email}</td>
+                </tr>
+                <tr>
+                  <th>Role</th>
+                  <td>{user.role}</td>
+                </tr>
+                <tr>
+                  <th>Phone</th>
+                  <td>{user.phone}</td>
+                </tr>
+              </thead>
+            </table>
+          </div>
         </div>
+
+        <br /><br /><br /><br /> <Link className="btn btn-info" to={`/salesman/supplier/update/${id}`}>Update</Link>
       </div>
-      
-    <br/><br/><br/><br/> <Link className="btn btn-info" to={`/salesman/supplier/update/${id}`}>Update</Link>
     </div>
 
   );

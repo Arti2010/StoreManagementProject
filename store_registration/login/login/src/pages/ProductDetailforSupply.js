@@ -96,7 +96,7 @@ const ProductDetailforSupply = () => {
                     <td>{product.productName}</td>
 
                     <td>{product.finalPrice}</td>
-                    <td>{product.status}</td>
+                    <td style={{ backgroundColor: "gray" }}>{product.status}</td>
                     <td>
                       <Link className="btn btn-info" to={`/salesman/prod-supplier/${product.id}`}>ShowDetails</Link>
                       {/* <button className="btn btn-danger ml-2" onClick={() => {

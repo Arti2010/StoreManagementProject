@@ -8,7 +8,7 @@ import Salesflow from './Salesflow';
 
 
 const UserProfile = () => {
-  const [id, setid]=useState('');
+  const [id, setid] = useState('');
   const [firstName, setfirstName] = useState('');
   const [lastName, setlastName] = useState('');
   const [email, setemail] = useState('');
@@ -20,7 +20,7 @@ const UserProfile = () => {
   const { Id } = useParams();
 
 
-  const user = {id, firstName, lastName, email, role, password, phone };
+  const user = { id, firstName, lastName, email, role, password, phone };
 
   useEffect(() => {
     SalesmanService.get(Id)
@@ -40,46 +40,50 @@ const UserProfile = () => {
   return (
     <div>
       <Salesflow />
-      <div className='container'>
-        <br /><br /><br /><br />
-        <div className='navbar_sale'>
-          <h3><PersonIcon fontSize='large' />
+      <br />
+      <div className='container' >
+        <div className='jumbotron' style={{ backgroundColor: "rgb(188 213 217)" }}>
+          <br /><br /><br /><br />
+          <div className='navbar_sale'>
+            <h3><PersonIcon fontSize='large' />
 
-            User Profile</h3>
+              User Profile</h3>
+            <br />
+          </div>
+          <hr />
           <br />
+          <div>
+            <table style={{ width: '80%', fontSize: '25px', fontFamily: 'serif' }} >
+              <thead className="thead-dark">
+                <tr>
+                  <th>FirstName</th>
+                  <td>{user.firstName}</td>
+                </tr>
+                <tr>
+                  <th>LastName</th>
+                  <td>{user.lastName}</td>
+                </tr>
+                <tr>
+                  <th>Email</th>
+                  <td>{user.email}</td>
+                </tr>
+                <tr>
+                  <th>Role</th>
+                  <td>{user.role}</td>
+                </tr>
+                <tr>
+                  <th>Phone</th>
+                  <td>{user.phone}</td>
+                </tr>
+              </thead>
+            </table>
+          </div>
         </div>
-        <hr />
-        <br />
-        <div>
-          <table style={{ width: '80%', fontSize: '25px', fontFamily: 'serif' }} >
-            <thead className="thead-dark">
-              <tr>
-                <th>FirstName</th>
-                <td>{user.firstName}</td>
-              </tr>
-              <tr>
-                <th>LastName</th>
-                <td>{user.lastName}</td>
-              </tr>
-              <tr>
-                <th>Email</th>
-                <td>{user.email}</td>
-              </tr>
-              <tr>
-                <th>Role</th>
-                <td>{user.role}</td>
-              </tr>
-              <tr>
-                <th>Phone</th>
-                <td>{user.phone}</td>
-              </tr>
-            </thead>
-          </table>
-        </div>
+
+        <br /><br /><br /><br /> <Link className="btn btn-info" to={`/salesman/user/update/${Id}`}>Update</Link>
       </div>
-      
-    <br/><br/><br/><br/> <Link className="btn btn-info" to={`/salesman/user/update/${Id}`}>Update</Link>
     </div>
+
 
   );
 }
