@@ -1,9 +1,11 @@
+
 .main {
   margin: auto;
   margin-top: 70px;
   margin-bottom: 70px;
   padding: 20px;
   width: 600px;
+  height: 300px;
   border: solid #ececec 1px;
   background-color: #ffffff;
   border-radius: 10px;
@@ -12,8 +14,8 @@
 
 .btn4 {
   border-radius: 10px;
-  font-size: 17px;
+  font-size: 40px;
   background-color: #e7e7e7;
-  color: black;
   box-shadow: 0 8px 16px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
 }
+

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.app.dto.LoginRequest;
+import com.app.dto.RegisterDto;
 import com.app.dto.ResponseDTO;
 import com.app.pojos.User;
 import com.app.service.IUserServices;
@@ -54,5 +55,12 @@ private IUserServices userService;
 			System.out.println("err in authenticateUser : "+e);
 			return new ResponseDTO<>(HttpStatus.INTERNAL_SERVER_ERROR, "User Not Added", null);
 		}
+	}
+	
+	@PostMapping("/user/register")
+	public String registerUser(@RequestBody User u) {
+		System.out.println("in registerUser: "+u);
+		return userService.registrUser(u);
+	
 	}
 }

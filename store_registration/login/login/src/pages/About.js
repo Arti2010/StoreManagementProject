@@ -8,7 +8,7 @@ function About() {
     <div>
       <Navigation />
       <div className="about">
-        <div className="headerContainer">
+        <div className="container">
           <h1 style={{ textAlign: "center" }} ><b>Store Management System</b></h1>
           {/* <img src={Logo1} style={{
           float: "left", display: "inline-block",

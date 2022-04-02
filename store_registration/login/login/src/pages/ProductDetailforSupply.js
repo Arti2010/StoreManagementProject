@@ -7,24 +7,24 @@ import Salesflow from './Salesflow';
 
 
 const ProductDetailforSupply = () => {
-//   let text = sessionStorage.getItem("category_details");
-//   console.log("printing is prlo", text);
-//   let obj = JSON.parse(text);
-//   console.log("preinting obj ", obj)
-//   let x = obj[0].catName;
+  //   let text = sessionStorage.getItem("category_details");
+  //   console.log("printing is prlo", text);
+  //   let obj = JSON.parse(text);
+  //   console.log("preinting obj ", obj)
+  //   let x = obj[0].catName;
 
 
 
 
-//   console.log(typeof (x));
-//   console.log("printing catName", x);
+  //   console.log(typeof (x));
+  //   console.log("printing catName", x);
 
-//   const history = useHistory();
-//   const { catId } = useParams();
-//   let y = catId.toString();
-//   console.log("printing tostringofcatid", y);
-//   // console.log(typeOf(y));
-//   sessionStorage.setItem("cat_Id", y);
+  //   const history = useHistory();
+  //   const { catId } = useParams();
+  //   let y = catId.toString();
+  //   console.log("printing tostringofcatid", y);
+  //   // console.log(typeOf(y));
+  //   sessionStorage.setItem("cat_Id", y);
   // const { catid} = useParams();
 
   //     const [catName, setcatName] = useState('');
@@ -37,7 +37,6 @@ const ProductDetailforSupply = () => {
       .then(response => {
         console.log('Printing product data', response.data);
         setProduct(response.data);
-
 
       })
       .catch(error => {
@@ -70,14 +69,14 @@ const ProductDetailforSupply = () => {
         <h3>List of Products </h3>
         <hr />
         <div>
-            <h3>Add product for supply</h3>
+          <h3>Add product for supply</h3>
           <Link to={`/sales/product-Supply/add`} className="btn btn-primary mb-2">Add Product</Link>
 
           <table className="table table-bordered table-striped">
             <thead >
 
               <tr>
-                
+
                 <th>prodPrice</th>
                 <th>prodQty</th>
                 <th>productName</th>
@@ -91,11 +90,11 @@ const ProductDetailforSupply = () => {
               {
                 products.map(product => (
                   <tr key={product.id}>
-                    
+
                     <td>{product.prodPrice}</td>
                     <td>{product.prodQty}</td>
                     <td>{product.productName}</td>
-                   
+
                     <td>{product.finalPrice}</td>
                     <td>{product.status}</td>
                     <td>
@@ -104,7 +103,7 @@ const ProductDetailforSupply = () => {
                         handleDelete(product.id);
                       }}>ShowDetails</button> */}
                     </td>
-                    <td>  
+                    <td>
                       {/* <Link className="btn btn-info" to={`/sales/product/update/${product.id}`}>Update</Link> */}
                       <button className="btn btn-danger ml-2" onClick={() => {
                         handleDelete(product.id);
@@ -127,4 +126,4 @@ const ProductDetailforSupply = () => {
 }
 
 
-export default ProductDetailforSupply ;
+export default ProductDetailforSupply;

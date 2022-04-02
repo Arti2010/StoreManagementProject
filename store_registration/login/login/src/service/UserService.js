@@ -3,6 +3,9 @@ import httpClient from '../http-coomon';
 const authenticate = (data) => {
   return httpClient.post(`/login`, data);
 };
+const registerUser = (data) => {
+  return httpClient.post(`/user/register`, data);
+};
 const getAll = () => {
   return httpClient.get(`/admin`);
 };
@@ -31,4 +34,4 @@ const getAllSupplierBYProductId = (productId) => {
 };
 
 
-export default { authenticate, getAll, create, get, update, remove ,getAllSupplier,getAllSupplierBYProductId}
+export default { authenticate, registerUser, getAll, create, get, update, remove, getAllSupplier, getAllSupplierBYProductId }

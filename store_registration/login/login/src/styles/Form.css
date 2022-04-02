@@ -38,22 +38,24 @@ div.info {
 }
 
 .fname,
-.pass {
+.pass,
+.comp
+ {
   padding: 5px;
   width: 140px;
   border-radius: 5px;
 }
 
 .usermail,
-.userpass,
-.comp {
+.userpass
+ {
   padding: 5px;
   width: 300px;
   border-radius: 5px;
 }
 
 .usermail {
-  width: 100%;
+  width: 70%;
 }
 
 #btn1 {
@@ -67,7 +69,6 @@ div.info {
   font-weight: bold;
 }
 
-#registerbtn,
 #loginbtn {
   background-color: #358794;
   padding: 20px, 20px, 10px, 10px;
@@ -83,4 +84,20 @@ b {
 #registerbtn,
 #loginbtn:hover {
   background-color: #023e47;
+}
+
+#registerbtn{
+  background-color: #358794;
+  padding: 20px,
+  20px,
+  10px,
+  10px;
+  color: black;
+  font-weight: bold;
+  border-color: #0a99af;
+  border-radius: 6px;
+}
+
+.signtable{
+  padding-right: 15px;
 }

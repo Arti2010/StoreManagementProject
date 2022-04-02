@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.app.dto.LoginRequest;
+import com.app.dto.RegisterDto;
 import com.app.exception.ResourceNotFoundException;
 import com.app.pojos.Role;
 import com.app.pojos.User;
@@ -44,5 +45,20 @@ public class UserServiceImpl implements IUserServices {
 		return userRepo.findByRole(Role.SUPPLIER);
 	}
 	
-	
+	@Override
+	public String registrUser(User u) {
+//		User u1 = new User(u.getFirstName(),u.getLastName(),u.getEmail(),u.getPassword(),u.getRole());
+		User alreadyPresent =userRepo.findByEmail(u.getEmail());
+		if(alreadyPresent==null)
+		{
+			userRepo.save(u);
+			return "Successfully Registered!!!";
+			
+		}
+		else
+		{
+			return "Already Registured !!!";
+		}
+		
+	}
 }

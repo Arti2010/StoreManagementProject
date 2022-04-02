@@ -21,6 +21,8 @@ public interface UserRepository extends JpaRepository<User, Integer> {
   List<User> findByRole(Role r);
 //	@Query("select p from users u where u.email=:em and u.password=:pass")
 //List<Product> findbyUserId(int supplierId);
+
+User findByEmail(String email);
  
  
  

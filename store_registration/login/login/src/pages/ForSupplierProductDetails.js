@@ -6,26 +6,27 @@ import SalesmanService from '../service/SalesmanService';
 
 import Supplierflow from './Supplierflow'
 import httpClient from '../http-coomon';
+import '../styles/ForSupplierProductDetails.css';
 
 const ForSupplierProductDetails = () => {
-//   let text = sessionStorage.getItem("category_details");
-//   console.log("printing is prlo", text);
-//   let obj = JSON.parse(text);
-//   console.log("preinting obj ", obj)
-//   let x = obj[0].catName;
+  //   let text = sessionStorage.getItem("category_details");
+  //   console.log("printing is prlo", text);
+  //   let obj = JSON.parse(text);
+  //   console.log("preinting obj ", obj)
+  //   let x = obj[0].catName;
 
 
+  const [style, setStyle] = useState("cont");
 
-
-//   console.log(typeof (x));
-//   console.log("printing catName", x);
+  //   console.log(typeof (x));
+  //   console.log("printing catName", x);
 
   const history = useHistory();
   const { id } = useParams();
-//   let y = catId.toString();
-//   console.log("printing tostringofcatid", y);
+  //   let y = catId.toString();
+  //   console.log("printing tostringofcatid", y);
   // console.log(typeOf(y));
-//   sessionStorage.setItem("cat_Id", y);
+  //   sessionStorage.setItem("cat_Id", y);
   // const { catid} = useParams();
 
   //     const [catName, setcatName] = useState('');
@@ -50,16 +51,17 @@ const ForSupplierProductDetails = () => {
     init();
   }, []);
 
-  const  ChangeStatus = (id) => {
-      const data=new FormData();
-      data.append('productId',id);
-      
+  const ChangeStatus = (id) => {
+    const data = new FormData();
+    data.append('productId', id);
+
 
     console.log('Printing id', id);
 
-    httpClient.post(`/supplier/status/`,data)
+    httpClient.post(`/supplier/status/`, data)
       .then(response => {
         console.log('product status changed successfully', response.data);
+        setStyle("cont2");
         init();
       })
       .catch(error => {
@@ -69,7 +71,7 @@ const ForSupplierProductDetails = () => {
 
   return (
     <div>
-    <Supplierflow />
+      <Supplierflow />
 
       <div className="container">
         <br /><br />
@@ -86,7 +88,7 @@ const ForSupplierProductDetails = () => {
                 <th>prodPrice</th>
                 <th>prodQty</th>
                 <th>productName</th>
-               
+
                 <th>finalPrice</th>
                 <th>Status</th>
                 <th>Actions</th>
@@ -100,10 +102,10 @@ const ForSupplierProductDetails = () => {
                     <td>{product.prodPrice}</td>
                     <td>{product.prodQty}</td>
                     <td>{product.productName}</td>
-                
+
                     <td>{product.finalPrice}</td>
-                    <td>{product.status}</td>
-                   
+                    <td className={style}>{product.status}</td>
+
                     <td>
                       {/* <Link className="btn btn-info" to={`/supplier/updateStatus/${product.id}`}>Change Status</Link> */}
                       <button className="btn btn-info" onClick={() => {
