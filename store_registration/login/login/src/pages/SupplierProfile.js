@@ -5,10 +5,10 @@ import { Link, useHistory, useParams } from 'react-router-dom';
 import SalesmanService from '../service/SalesmanService';
 import PersonIcon from '@material-ui/icons/Person';
 import Salesflow from './Salesflow';
+import Supplierflow from './Supplierflow'
 
 
-const UserProfile = () => {
-  const [id, setid]=useState('');
+const SupplierProfile = () => {
   const [firstName, setfirstName] = useState('');
   const [lastName, setlastName] = useState('');
   const [email, setemail] = useState('');
@@ -17,13 +17,13 @@ const UserProfile = () => {
   const [phone, setphone] = useState('');
 
   const history = useHistory();
-  const { Id } = useParams();
+  const { id } = useParams();
 
 
-  const user = {id, firstName, lastName, email, role, password, phone };
+  const user = { firstName, lastName, email, role, password, phone };
 
   useEffect(() => {
-    SalesmanService.get(Id)
+    SalesmanService.get(id)
       .then(user => {
         setfirstName(user.data.firstName);
         setlastName(user.data.lastName);
@@ -39,13 +39,13 @@ const UserProfile = () => {
   )
   return (
     <div>
-      <Salesflow />
+       <Supplierflow />
       <div className='container'>
         <br /><br /><br /><br />
         <div className='navbar_sale'>
           <h3><PersonIcon fontSize='large' />
 
-            User Profile</h3>
+            Supplier Profile</h3>
           <br />
         </div>
         <hr />
@@ -78,10 +78,10 @@ const UserProfile = () => {
         </div>
       </div>
       
-    <br/><br/><br/><br/> <Link className="btn btn-info" to={`/salesman/user/update/${Id}`}>Update</Link>
+    <br/><br/><br/><br/> <Link className="btn btn-info" to={`/salesman/supplier/update/${id}`}>Update</Link>
     </div>
 
   );
 }
 
-export default UserProfile;
+export default SupplierProfile;

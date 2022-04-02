@@ -15,12 +15,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.app.dto.ProductCat;
+import com.app.dto.SupplierUser;
 import com.app.pojos.Category;
 import com.app.pojos.Product;
+
 import com.app.pojos.User;
+import com.app.service.IAdminService;
 import com.app.service.ICategoryService;
 import com.app.service.IProductService;
-import com.app.service.ISupplierService;
+
+import com.app.service.IUserServices;
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/api/salesman/")
@@ -31,12 +35,33 @@ public class SalesmanController {
 	@Autowired
 	private ICategoryService categoryService;
 	
+
+	
 	@Autowired
-	private ISupplierService supplierService;
+	private IUserServices userService;
+	
+	@Autowired
+	private IAdminService adminservice;
 	
 	public SalesmanController() {
 		System.out.println("in constructor of"+getClass());
 	}
+	
+	
+	    
+	   @GetMapping("/profile/{userId}")
+		public ResponseEntity<?> getUserDetails(@PathVariable int userId) {
+			System.out.println("in get emp dtls " + userId);
+			try {
+				// invoke service layer's method
+				return new ResponseEntity<>(adminservice.fetchUserDetails(userId), HttpStatus.OK);
+			} catch (RuntimeException e) {
+				System.out.println("err in get emp dtls " + e);
+				return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
+			}
+
+		}
+	
 	@GetMapping("/category")
 	public ResponseEntity<?> getCategoryDetails() {
 		System.out.println("in get all category");
@@ -46,7 +71,7 @@ public class SalesmanController {
 	public ResponseEntity<?> getProductByCategoryName(@PathVariable int catId){
 		System.out.println("in get all Product by category id");
 		return new ResponseEntity<>(categoryService.getAllProductByCategoryName(catId), HttpStatus.OK);
-		
+	
 	}
 	
 	@GetMapping("/products")
@@ -121,12 +146,56 @@ public class SalesmanController {
 	}
 	
 	
-	@GetMapping("/salesman/user/supplier")
-	public ResponseEntity<?> getSupplierDetails() {
-		System.out.println("in get all supplier");
-		return new ResponseEntity<>(supplierService.getAllSupplier(), HttpStatus.OK);
-	} 
+//	@GetMapping("/salesman/user/supplier")
+//	public ResponseEntity<?> getSupplierDetails() {
+//		System.out.println("in get all supplier");
+//		return new ResponseEntity<>(supplierService.getAllSupplier(), HttpStatus.OK);
+//	}
 	
+	@PostMapping("/products/supplier/save")
+	public int addProductForSupply(@RequestBody Product p) {
+       
+		System.out.println(p);
+       System.out.println("in add product " + p);
+		return productService.addProductforSupply(p);
+	}
+	
+//	@PostMapping("/salesman/product/supplier/save")
+//	public User addUser(@RequestBody SupplierUser s) // de-serial (un marshalling)
+//	{
+//
+//		System.out.println("in save supplier " + s);
+//		return supplierService.addSupplierForProduct(s);
+//	}
+	
+	@PostMapping("/supplier/product/{supplierId}")
+	public User addSupplierForProduct(@PathVariable int supplierId, @RequestParam int productId) {
+       
+		System.out.println(supplierId);
+       System.out.println("in add supplier " +supplierId );
+		return productService.addSupplier(supplierId,productId);
+	
+	}
+	
+	@GetMapping("/user/supplier")
+	public ResponseEntity<?> findUserByRole() {
+	 userService.findByRole();
+	 return new ResponseEntity<>(userService.findByRole(), HttpStatus.OK);
+	}
+	
+	
+//	@GetMapping("/prod-supply/{productId}")
+//	public ResponseEntity<?> findSupplierByProductId(@PathVariable int productId){
+//		System.out.println("in get all supplier by product id");
+//		return new ResponseEntity<>(productService.findByProductId(productId), HttpStatus.OK);
+//		
+//	}
+//	
+	@GetMapping("/prod-supply/{productId}")
+	public ResponseEntity<?> findSupplierByProductId(@PathVariable int productId){
+	System.out.println("in get all supplier by product id");
+		return new ResponseEntity<>(productService.findByProductId(productId), HttpStatus.OK);
+	}
 	
 	
 }

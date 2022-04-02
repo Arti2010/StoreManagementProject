@@ -23,4 +23,12 @@ const remove = (id) => {
   return httpClient.delete(`/admin/${id}`);
 };
 
-export default { authenticate, getAll, create, get, update, remove }
+const getAllSupplier = () => {
+  return httpClient.get(`/salesman/user/supplier`);
+};
+const getAllSupplierBYProductId = (productId) => {
+  return httpClient.get(`/salesman/prod-supply/${productId}`);
+};
+
+
+export default { authenticate, getAll, create, get, update, remove ,getAllSupplier,getAllSupplierBYProductId}

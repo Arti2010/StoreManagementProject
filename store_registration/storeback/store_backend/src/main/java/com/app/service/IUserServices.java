@@ -11,5 +11,6 @@ import com.app.pojos.User;
 public interface IUserServices {
 	User authenticateUser(LoginRequest loginRequest);
 	User fetchUserDetails(int userId);
+	List<User> findByRole();
 	
 }

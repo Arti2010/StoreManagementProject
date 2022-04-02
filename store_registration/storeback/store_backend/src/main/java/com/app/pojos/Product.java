@@ -36,7 +36,7 @@ public class Product extends BaseEntity{
 	private int discount;
 	private double finalPrice;
 	
-	@JsonIgnore
+//	@JsonIgnore
 	@Enumerated(EnumType.STRING)
 	@Column(length = 20)
 	private Status status;
@@ -61,7 +61,12 @@ public class Product extends BaseEntity{
 	private Set<Salesman> salesman=new HashSet<>();
 	
     @JsonIgnore
-	@ManyToMany
-	@JoinTable(name="supplier_product",joinColumns=@JoinColumn(name="product_id"),inverseJoinColumns=@JoinColumn(name="supplier_id"))
-	private Set<Supplier> supplier=new HashSet<>();
+	@ManyToOne
+//	@JoinTable(name="supplier_product",joinColumns=@JoinColumn(name="product_id"),inverseJoinColumns=@JoinColumn(name="supplier_id"))
+//	private Set<User> User=new HashSet<>();
+	private User user;
+    
+//    public void AddUser(User u) {
+//    	User.add(u);
+//    }
 }

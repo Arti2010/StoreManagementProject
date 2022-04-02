@@ -3,10 +3,10 @@ import { Link, useHistory, useParams } from "react-router-dom";
 import { useEffect } from "react/cjs/react.development";
 import UpdateService from "../service/UpdateService";
 
-import Salesflow from "./Salesflow";
+import Supplierflow from "./Supplierflow";
 import userService from "../service/UserService"
 
-const UpdateUser = () => {
+const UpdateSupplier = () => {
     const [id, setId] = useState('');
     const [firstName, setfirstName] = useState('');
     const [lastName, setlastName] = useState('');
@@ -28,7 +28,7 @@ const UpdateUser = () => {
             userService.update(user)
                 .then(response => {
                     console.log('user data updated successfully', response.data);
-                    history.push('/sales/profile/' + Id);
+                    history.push('/supplier/profile/' + Id);
                 })
                 .catch(error => {
                     console.log('Something went wrong', error);
@@ -66,7 +66,7 @@ const UpdateUser = () => {
     }, [])
     return (
         <div>
-            <Salesflow />
+            <Supplierflow />
 
             <div className="container">
                 <h3>Update user</h3>
@@ -139,10 +139,10 @@ const UpdateUser = () => {
                     </div>
                 </form>
                 <hr />
-                <Link to={`/sales/profile/${Id}`}>Back to user Profile</Link>
+                <Link to={`/supplier/profile/${Id}`}>Back to supplier Profile</Link>
             </div>
         </div>
     )
 }
 
-export default UpdateUser;
+export default UpdateSupplier;

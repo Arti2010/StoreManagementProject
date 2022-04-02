@@ -1,30 +1,19 @@
-package com.app.pojos;
-
-import java.util.HashSet;
-import java.util.Set;
+package com.app.dto;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.app.pojos.Role;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-//user_id	first_name	last_name	email	password	role	phone
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-@Entity
-@Table(name = "users")
-public class User extends BaseEntity{
+public class SupplierUser {
 	@Column(length = 20, nullable = false)
 	private String firstName;
 	@Column(length = 20, nullable = false)
@@ -38,14 +27,7 @@ public class User extends BaseEntity{
 	private Role role;
 	@Column(length = 20)
 	private String phone;
-
-
-
-
-
-//	@JsonIgnore
-//	@ManyToMany(mappedBy="User" ,fetch = FetchType.EAGER)
-//	private Set<Product> product=new HashSet<>();
 	
-	
+	private int proId;
+
 }

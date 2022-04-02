@@ -1,13 +1,15 @@
-import React, { useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
-import { useEffect } from "react/cjs/react.development";
+import React from 'react';
+import { Link } from 'react-router-dom';
+
 import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 import '../styles/Adminflow.css';
-import Login from '../pages/Login'
+
 
 function Adminflow() {
 
-
+    // let text = sessionStorage.getItem("validated_date");
+    // let obj = JSON.parse(text);
+    // let name=obj.firstName;
     return (
         <div>
             <div className='navbar'>

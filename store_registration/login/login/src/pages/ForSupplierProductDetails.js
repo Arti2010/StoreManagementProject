@@ -3,28 +3,29 @@ import { useState } from 'react';
 import { useEffect } from "react/cjs/react.development";
 import { Link, useHistory, useParams } from 'react-router-dom';
 import SalesmanService from '../service/SalesmanService';
-import Salesflow from './Salesflow';
+
+import Supplierflow from './Supplierflow'
+import httpClient from '../http-coomon';
+
+const ForSupplierProductDetails = () => {
+//   let text = sessionStorage.getItem("category_details");
+//   console.log("printing is prlo", text);
+//   let obj = JSON.parse(text);
+//   console.log("preinting obj ", obj)
+//   let x = obj[0].catName;
 
 
-const ProductDetails = () => {
-  let text = sessionStorage.getItem("category_details");
-  console.log("printing is prlo", text);
-  let obj = JSON.parse(text);
-  console.log("preinting obj ", obj)
-  let x = obj[0].catName;
 
 
-
-
-  console.log(typeof (x));
-  console.log("printing catName", x);
+//   console.log(typeof (x));
+//   console.log("printing catName", x);
 
   const history = useHistory();
-  const { catId } = useParams();
-  let y = catId.toString();
-  console.log("printing tostringofcatid", y);
+  const { id } = useParams();
+//   let y = catId.toString();
+//   console.log("printing tostringofcatid", y);
   // console.log(typeOf(y));
-  sessionStorage.setItem("cat_Id", y);
+//   sessionStorage.setItem("cat_Id", y);
   // const { catid} = useParams();
 
   //     const [catName, setcatName] = useState('');
@@ -33,7 +34,7 @@ const ProductDetails = () => {
   const [products, setProduct] = useState([]);
 
   const init = () => {
-    SalesmanService.getProductbyCatName(catId)
+    SalesmanService.getProductbySupplierId(id)
       .then(response => {
         console.log('Printing category data', response.data);
         setProduct(response.data);
@@ -49,11 +50,16 @@ const ProductDetails = () => {
     init();
   }, []);
 
-  const handleDelete = (id) => {
+  const  ChangeStatus = (id) => {
+      const data=new FormData();
+      data.append('productId',id);
+      
+
     console.log('Printing id', id);
-    SalesmanService.remove(id)
+
+    httpClient.post(`/supplier/status/`,data)
       .then(response => {
-        console.log('product deleted successfully', response.data);
+        console.log('product status changed successfully', response.data);
         init();
       })
       .catch(error => {
@@ -63,14 +69,14 @@ const ProductDetails = () => {
 
   return (
     <div>
-      <Salesflow />
+    <Supplierflow />
 
       <div className="container">
         <br /><br />
-        <h3>List of Products under categery</h3>
+        <h3>List of Products to Supply</h3>
         <hr />
         <div>
-          <Link to={`/sales/product/add`} className="btn btn-primary mb-2">Add Product</Link>
+          {/* <Link to={`/sales/product/add`} className="btn btn-primary mb-2">Add Product</Link> */}
 
           <table className="table table-bordered table-striped">
             <thead >
@@ -80,8 +86,9 @@ const ProductDetails = () => {
                 <th>prodPrice</th>
                 <th>prodQty</th>
                 <th>productName</th>
-                <th>discount</th>
+               
                 <th>finalPrice</th>
+                <th>Status</th>
                 <th>Actions</th>
               </tr>
             </thead>
@@ -93,13 +100,15 @@ const ProductDetails = () => {
                     <td>{product.prodPrice}</td>
                     <td>{product.prodQty}</td>
                     <td>{product.productName}</td>
-                    <td>{product.discount}</td>
+                
                     <td>{product.finalPrice}</td>
+                    <td>{product.status}</td>
+                   
                     <td>
-                      <Link className="btn btn-info" to={`/sales/product/update/${product.id}`}>Update</Link>
-                      <button className="btn btn-danger ml-2" onClick={() => {
-                        handleDelete(product.id);
-                      }}>Delete</button>
+                      {/* <Link className="btn btn-info" to={`/supplier/updateStatus/${product.id}`}>Change Status</Link> */}
+                      <button className="btn btn-info" onClick={() => {
+                        ChangeStatus(product.id);
+                      }}>Change Status</button>
                     </td>
                   </tr>
                 ))
@@ -108,7 +117,7 @@ const ProductDetails = () => {
           </table>
 
         </div>
-        <Link to={`/sales/category`}>Back to List</Link>
+        {/* <Link to={`/sales/category`}>Back to List</Link> */}
       </div>
     </div>
   );
@@ -120,4 +129,4 @@ const ProductDetails = () => {
 }
 
 
-export default ProductDetails;
+export default ForSupplierProductDetails;

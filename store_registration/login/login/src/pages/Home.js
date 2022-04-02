@@ -11,7 +11,7 @@ function Home() {
       <Navigation />
       <br /><br />
 
-      <div>
+      <div className='container'>
         <Carousel interval={2000}>
           <Carousel.Item>
             <img

@@ -1,7 +1,7 @@
 import httpClient from '../http-coomon';
 
-const get = (id) => {
-  return httpClient.get(`/user/${id}`);
+const get = (Id) => {
+  return httpClient.get(`/user/${Id}`);
 };
 
 
@@ -37,4 +37,13 @@ const removeCategory = (id) => {
   return httpClient.delete(`/salesman/category/delete/${id}`);
 };
 
-export default { get, getAll, getAllCat, getProductbyCatName, update, create, remove, getProduct, AddCategory, removeCategory }
+const getAllProductForSupply = () => {
+  return httpClient.get(`/salesman/products`);
+};
+const saveProductForSupply = (data) => {
+  return httpClient.post(`/salesman/products/supplier/save`,data);
+};
+const getProductbySupplierId = (id) => {
+  return httpClient.get(`/supplier/product/${id}`);
+};
+export default { get, getAll, getAllCat, getProductbyCatName, update, create, remove, getProduct, AddCategory, removeCategory,getAllProductForSupply,saveProductForSupply ,getProductbySupplierId}

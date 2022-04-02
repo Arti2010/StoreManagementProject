@@ -3,6 +3,7 @@ import { Link, useHistory } from 'react-router-dom';
 import '../styles/Form.css';
 import userService from "../service/UserService"
 import Navigation from "../component/Navigation";
+import Swal from 'sweetalert2'
 
 function Login(props) {
 
@@ -28,20 +29,40 @@ function Login(props) {
                 sessionStorage.setItem("validated_date", JSON.stringify(response.data.result));
                 if (response.data.result.role === "ADMIN") {
                     history.push("/adminflow");
-                    alert('Admin login successful!!');
+                    //alert('Admin login successful!!');
+                    Swal.fire({
+                        icon: 'success',
+                        //title: 'Oops...',
+                        text: 'Admin Login Successful!!'
+                    })
                 }
                 else if (response.data.result.role === "SALESMAN") {
                     history.push("/salesflow");
-                    alert('Salesman login successful!!');
+                    //alert('Salesman login successful!!');
+                    Swal.fire({
+                        icon: 'success',
+                        //title: 'Oops...',
+                        text: 'Seller Login Successful!!'
+                    })
                 }
                 else if (response.data.result.role === "SUPPLIER") {
                     history.push("/supplierflow");
-                    alert('Supplier login successful!!');
+                    //alert('Supplier login successful!!');
+                    Swal.fire({
+                        icon: 'success',
+                        //title: 'Oops...',
+                        text: 'Supplier Login Successful!!'
+                    })
                 }
             })
             .catch(error => {
                 console.log('something went wrong', error);
-                alert('Login failed!! Invalid email or password');
+                //alert('Login failed!! Invalid email or password');
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Try again!!',
+                    text: 'Invalid email or password!'
+                })
             })
 
     }

@@ -6,25 +6,25 @@ import SalesmanService from '../service/SalesmanService';
 import Salesflow from './Salesflow';
 
 
-const ProductDetails = () => {
-  let text = sessionStorage.getItem("category_details");
-  console.log("printing is prlo", text);
-  let obj = JSON.parse(text);
-  console.log("preinting obj ", obj)
-  let x = obj[0].catName;
+const ProductDetailforSupply = () => {
+//   let text = sessionStorage.getItem("category_details");
+//   console.log("printing is prlo", text);
+//   let obj = JSON.parse(text);
+//   console.log("preinting obj ", obj)
+//   let x = obj[0].catName;
 
 
 
 
-  console.log(typeof (x));
-  console.log("printing catName", x);
+//   console.log(typeof (x));
+//   console.log("printing catName", x);
 
-  const history = useHistory();
-  const { catId } = useParams();
-  let y = catId.toString();
-  console.log("printing tostringofcatid", y);
-  // console.log(typeOf(y));
-  sessionStorage.setItem("cat_Id", y);
+//   const history = useHistory();
+//   const { catId } = useParams();
+//   let y = catId.toString();
+//   console.log("printing tostringofcatid", y);
+//   // console.log(typeOf(y));
+//   sessionStorage.setItem("cat_Id", y);
   // const { catid} = useParams();
 
   //     const [catName, setcatName] = useState('');
@@ -33,9 +33,9 @@ const ProductDetails = () => {
   const [products, setProduct] = useState([]);
 
   const init = () => {
-    SalesmanService.getProductbyCatName(catId)
+    SalesmanService.getAllProductForSupply()
       .then(response => {
-        console.log('Printing category data', response.data);
+        console.log('Printing product data', response.data);
         setProduct(response.data);
 
 
@@ -67,40 +67,48 @@ const ProductDetails = () => {
 
       <div className="container">
         <br /><br />
-        <h3>List of Products under categery</h3>
+        <h3>List of Products </h3>
         <hr />
         <div>
-          <Link to={`/sales/product/add`} className="btn btn-primary mb-2">Add Product</Link>
+            <h3>Add product for supply</h3>
+          <Link to={`/sales/product-Supply/add`} className="btn btn-primary mb-2">Add Product</Link>
 
           <table className="table table-bordered table-striped">
             <thead >
 
               <tr>
-                <th>prodDesc</th>
+                
                 <th>prodPrice</th>
                 <th>prodQty</th>
                 <th>productName</th>
-                <th>discount</th>
                 <th>finalPrice</th>
-                <th>Actions</th>
+                <th>Status</th>
+                <th>Supplier Details</th>
+                <th>Action</th>
               </tr>
             </thead>
             <tbody>
               {
                 products.map(product => (
                   <tr key={product.id}>
-                    <td>{product.prodDesc}</td>
+                    
                     <td>{product.prodPrice}</td>
                     <td>{product.prodQty}</td>
                     <td>{product.productName}</td>
-                    <td>{product.discount}</td>
+                   
                     <td>{product.finalPrice}</td>
+                    <td>{product.status}</td>
                     <td>
-                      <Link className="btn btn-info" to={`/sales/product/update/${product.id}`}>Update</Link>
+                      <Link className="btn btn-info" to={`/salesman/prod-supplier/${product.id}`}>ShowDetails</Link>
+                      {/* <button className="btn btn-danger ml-2" onClick={() => {
+                        handleDelete(product.id);
+                      }}>ShowDetails</button> */}
+                    </td>
+                    <td>  
+                      {/* <Link className="btn btn-info" to={`/sales/product/update/${product.id}`}>Update</Link> */}
                       <button className="btn btn-danger ml-2" onClick={() => {
                         handleDelete(product.id);
-                      }}>Delete</button>
-                    </td>
+                      }}>Delete</button></td>
                   </tr>
                 ))
               }
@@ -108,7 +116,6 @@ const ProductDetails = () => {
           </table>
 
         </div>
-        <Link to={`/sales/category`}>Back to List</Link>
       </div>
     </div>
   );
@@ -120,4 +127,4 @@ const ProductDetails = () => {
 }
 
 
-export default ProductDetails;
+export default ProductDetailforSupply ;

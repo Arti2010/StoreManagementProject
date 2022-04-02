@@ -30,12 +30,12 @@ private IUserServices userService;
 	}
 	
 	
-	@GetMapping("/user/{id}")
-	public ResponseEntity<?> getUserDetails(@PathVariable int id) {
-		System.out.println("in get product dtls " + id);
+	@GetMapping("/user/{Id}")
+	public ResponseEntity<?> getUserDetails(@PathVariable int Id) {
+		System.out.println("in get product dtls " + Id);
 		try {
 			// invoke service layer's method
-			return new ResponseEntity<>(userService.fetchUserDetails(id), HttpStatus.OK);
+			return new ResponseEntity<>(userService.fetchUserDetails(Id), HttpStatus.OK);
 		} catch (RuntimeException e) {
 			System.out.println("err in get user dls " + e);
 			return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);

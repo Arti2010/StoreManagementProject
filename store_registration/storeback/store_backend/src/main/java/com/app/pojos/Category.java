@@ -25,6 +25,6 @@ public class Category extends BaseEntity {
 	
 
 	@OneToMany(mappedBy ="proCat",orphanRemoval = true,fetch = FetchType.EAGER )
-	private List<Product> product= new ArrayList<>();;
+	private List<Product> product= new ArrayList<>();
 
 }
