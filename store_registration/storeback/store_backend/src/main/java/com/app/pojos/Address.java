@@ -18,12 +18,22 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name="address_tbl")
 public class Address extends BaseEntity  {
-	private int houseNo;
+	private String shopName;
 	private String city;
 	private int zipCode;
 	private String state;
 	private String country;
 	
+
+	public Address(String shopName, String city, int zipCode, String state, String country) {
+		super();
+		this.shopName = shopName;
+		this.city = city;
+		this.zipCode = zipCode;
+		this.state = state;
+		this.country = country;
+	}
+
 
 	@OneToOne
 	@JoinColumn(name="user_id",nullable=false)

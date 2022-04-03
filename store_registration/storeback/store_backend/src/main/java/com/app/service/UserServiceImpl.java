@@ -8,9 +8,12 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.app.dto.LoginRequest;
 import com.app.dto.RegisterDto;
+import com.app.dto.UserAddressDto;
 import com.app.exception.ResourceNotFoundException;
+import com.app.pojos.Address;
 import com.app.pojos.Role;
 import com.app.pojos.User;
+import com.app.repository.AddressRepo;
 import com.app.repository.UserRepository;
 
 
@@ -25,6 +28,10 @@ public class UserServiceImpl implements IUserServices {
 
 	@Autowired
 	private UserRepository userRepo;
+	
+	@Autowired
+	private AddressRepo addRepo;
+	
 	
 	
 	@Override
@@ -61,4 +68,23 @@ public class UserServiceImpl implements IUserServices {
 		}
 		
 	}
+
+	@Override
+	public String saveAddress(UserAddressDto ua) {
+		// TODO Auto-generated method stub
+		User u= userRepo.findById(ua.getUserId()).orElseThrow( () -> new ResourceNotFoundException("User by ID " + ua.getUserId() + " not found!!!!"));
+		Address a =new Address(ua.getShopName(),ua.getCity(),ua.getZipCode(),ua.getState(),ua.getCountry());
+		a.setUser(u);
+		addRepo.save(a);
+		return "Address Added Successfully";
+	}
+
+	@Override
+	public Address findAddressByUserId(int id) {
+
+		return  addRepo.findByUserId(id);
+	}
+	
+	
+	
 }

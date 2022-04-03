@@ -32,6 +32,12 @@ const getAllSupplier = () => {
 const getAllSupplierBYProductId = (productId) => {
   return httpClient.get(`/salesman/prod-supply/${productId}`);
 };
+const getAddress = (Id) => {
+  return httpClient.get(`/user/address/${Id}`);
+};
+const saveAddress = (user) => {
+  return httpClient.post(`/user/completeProfile`, user);
+};
 
 
-export default { authenticate, registerUser, getAll, create, get, update, remove, getAllSupplier, getAllSupplierBYProductId }
+export default { authenticate, registerUser, getAll, create, get, update, remove, getAllSupplier, getAllSupplierBYProductId, getAddress, saveAddress };

@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.app.dto.LoginRequest;
 import com.app.dto.RegisterDto;
 import com.app.dto.ResponseDTO;
+import com.app.dto.UserAddressDto;
+import com.app.pojos.Address;
 import com.app.pojos.User;
 import com.app.service.IUserServices;
 import com.app.service.UserServiceImpl;
@@ -62,5 +64,19 @@ private IUserServices userService;
 		System.out.println("in registerUser: "+u);
 		return userService.registrUser(u);
 	
+	}
+	
+	
+	@PostMapping("/user/completeProfile")
+	public String completeProfile(@RequestBody UserAddressDto ua) {
+//		Address a =new Address(ua.getShopName(),ua.getCity(),ua.getZipCode(),ua.getState(),ua.getCountry());
+return userService.saveAddress(ua);
+	}
+	
+	@GetMapping("/user/address/{Id}")
+	public Address getUserAdress(@PathVariable int Id) 
+	{
+		return userService.findAddressByUserId(Id);
+		
 	}
 }

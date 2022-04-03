@@ -92,6 +92,7 @@ const ForSupplierProductDetails = () => {
                 <th>finalPrice</th>
                 <th>Status</th>
                 <th>Actions</th>
+                <th>Address</th>
               </tr>
             </thead>
             <tbody>
@@ -104,14 +105,16 @@ const ForSupplierProductDetails = () => {
                     <td>{product.productName}</td>
 
                     <td>{product.finalPrice}</td>
-                    <td className={style}>{product.status}</td>
+                    <td className={style} style={{ color: "white" }}>{product.status}</td>
 
                     <td>
-                      {/* <Link className="btn btn-info" to={`/supplier/updateStatus/${product.id}`}>Change Status</Link> */}
+
                       <button className="btn btn-info" onClick={() => {
                         ChangeStatus(product.id);
-                      }}>Change Status</button>
-                    </td>
+                      }}>Change Status</button></td>
+                    <td>
+
+                      <Link className="btn btn-info" to={`/supplier/complete/details/2`}>Address To deliver</Link></td>
                   </tr>
                 ))
               }

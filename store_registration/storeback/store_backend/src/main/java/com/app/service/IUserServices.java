@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.app.dto.LoginRequest;
 import com.app.dto.RegisterDto;
+import com.app.dto.UserAddressDto;
 import com.app.dto.UserDTO;
 import com.app.pojos.Address;
 import com.app.pojos.Product;
@@ -14,5 +15,7 @@ public interface IUserServices {
 	User fetchUserDetails(int userId);
 	List<User> findByRole();
 	String registrUser(User u);
+	String saveAddress(UserAddressDto ua);
+	Address findAddressByUserId(int id);
 	
 }

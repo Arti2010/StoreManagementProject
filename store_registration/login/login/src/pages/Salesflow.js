@@ -18,6 +18,7 @@ function Salesflow() {
                 <div className='rightSide'>
                     <Link to="/salesflow" className="nav-link">Home </Link>
                     <Link to={`/sales/profile/${id}`} className="nav-link">Show Profile </Link>
+                    <Link to={`/sales/Complete/profile/${id}`} className="nav-link">Fill Complete Profile </Link>
                     <Link to="/sales/category" className="nav-link">Stock </Link>
                     <Link to="/sales/supply" className="nav-link">Supply </Link>
                     <Link to="/sales/help" className="nav-link">Help </Link>

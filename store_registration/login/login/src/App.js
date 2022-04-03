@@ -27,6 +27,9 @@ import ShowSupplierDetails from './pages/ShowSupplierDetails';
 import SupplierProfile from './pages/SupplierProfile';
 import ForSupplierProductDetails from './pages/ForSupplierProductDetails';
 import UpdateSupplier from './pages/UpdateSupplier';
+import CompleteProfile from './pages/CompleteProfile';
+import AddressUserCompleteDetails from './pages/AddressUserCompleteDetails';
+import SupplierProductCompleteDetails from './pages/SupplierProductCompleteDetails';
 
 function App() {
     return (
@@ -61,7 +64,10 @@ function App() {
                     <Route path="/salesman/prod-supplier/:productId" exact component={ShowSupplierDetails} />
                     <Route path="/supplier/profile/:id" exact component={SupplierProfile} />
                     <Route path="/supplier/product/details/:id" exact component={ForSupplierProductDetails} />
-                      <Route path="/salesman/supplier/update/:Id" exact component={UpdateSupplier} />
+                    <Route path="/salesman/supplier/update/:Id" exact component={UpdateSupplier} />
+                    <Route path="/sales/Complete/profile/:Id" exact component={CompleteProfile} />
+                    <Route path="/sales/complete/details/:Id" exact component={AddressUserCompleteDetails} />
+                    <Route path="/supplier/complete/details/:Id" exact component={SupplierProductCompleteDetails} />
                 </Switch>
                 <Footer />
             </Router>

@@ -38,7 +38,7 @@ const UserList = () => {
     <div>
       <Adminflow />
       <div className="container">
-        <br /><br />
+        <br />
         <h3>List of users</h3>
         <hr />
         <div>

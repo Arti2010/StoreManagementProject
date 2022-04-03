@@ -46,16 +46,21 @@ div.info {
   border-radius: 5px;
 }
 
-.usermail,
-.userpass
+.usermail
  {
   padding: 5px;
-  width: 300px;
+  width: 400px;
+  border-radius: 5px;
+}
+
+.userpass {
+  padding: 5px;
+  width: 150px;
   border-radius: 5px;
 }
 
 .usermail {
-  width: 70%;
+  width: 80%;
 }
 
 #btn1 {
@@ -76,6 +81,7 @@ div.info {
   font-weight: bold;
   border-color: #0a99af;
   border-radius: 6px;
+  width: 80px;
 }
 
 b {
