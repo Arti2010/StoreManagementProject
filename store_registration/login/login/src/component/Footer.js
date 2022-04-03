@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import InstagramIcon from "@material-ui/icons/Instagram";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import FacebookIcon from "@material-ui/icons/Facebook";
@@ -10,7 +10,7 @@ function Footer() {
     <div className="footer">
       <div className="socialMedia">
         <p>Follow us on </p>
-        <p><b className="copy">&copy; Copyright IACSD PG-DAC SEPT-2021</b>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<InstagramIcon /><TwitterIcon /><FacebookIcon /><LinkedInIcon /></p>
+        <p><b className="copy">&copy; Copyright PG-DAC SEPT-2021 Store Management System</b>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<InstagramIcon /><TwitterIcon /><FacebookIcon /><LinkedInIcon /></p>
       </div>
     </div>
 
