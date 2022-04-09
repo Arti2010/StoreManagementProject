@@ -1,6 +1,5 @@
 import React from 'react';
 import '../styles/Home.css';
-import { Link } from 'react-router-dom';
 import { Carousel } from 'react-bootstrap';
 import Navigation from '../component/Navigation';
 
