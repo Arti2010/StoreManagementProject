@@ -62,7 +62,7 @@ public class CategoryServiceImpl implements ICategoryService {
 	@Override
 	public String deleteCategoryDetails(int id) {
 	     Category c=catRepo.findById(id).orElseThrow( () -> new ResourceNotFoundException("category by " + id + " not found!!!!"));
-		c.setProduct(null);
+	     c.setProduct(null);
 	     catRepo.deleteById(id);
 		return "category	 Details with ID " + id + " deleted successfuly... ";
 	}
