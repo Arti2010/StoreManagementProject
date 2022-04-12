@@ -22,6 +22,7 @@ function Register() {
         let pass = document.getElementById("password").value;
         let cpass = document.getElementById("cpass").value;
 
+
         if (pass == null || pass == "" || pass.trim().length == 0) {
             return false;
         }
@@ -105,6 +106,9 @@ function Register() {
                 //title: 'Oops...',
                 text: 'Please Enter the details!!'
             })
+
+
+
     };
 
     let red = { color: "red" };
@@ -147,7 +151,7 @@ function Register() {
                         </tr>
                         <tr>
                             <td colSpan="2">
-                                &nbsp; &nbsp;<input type="text" id="email" className="usermail" name="register" autoComplete="off" required onChange={(event) => {
+                                &nbsp; &nbsp;<input type="email" id="email" className="usermail" name="register" autoComplete="off" required onChange={(event) => {
                                     setEmail(event.target.value)
                                 }} />
                             </td>
@@ -164,7 +168,7 @@ function Register() {
                             </td>
 
                             <td style={padleft}>
-                                &nbsp; &nbsp;<input type="text" id="phone" className="pass" name="register" autoComplete="off" required onChange={(event) => {
+                                &nbsp; &nbsp;<input type="tel" id="phone" className="pass" name="register" autoComplete="off" required maxLength="10" onChange={(event) => {
                                     setPhone(event.target.value)
                                 }} />
                             </td>

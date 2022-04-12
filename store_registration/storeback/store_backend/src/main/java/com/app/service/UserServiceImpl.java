@@ -74,8 +74,20 @@ public class UserServiceImpl implements IUserServices {
 		// TODO Auto-generated method stub
 		User u= userRepo.findById(ua.getUserId()).orElseThrow( () -> new ResourceNotFoundException("User by ID " + ua.getUserId() + " not found!!!!"));
 		Address a =new Address(ua.getShopName(),ua.getCity(),ua.getZipCode(),ua.getState(),ua.getCountry());
-		a.setUser(u);
+		
+		Address a1= addRepo.findByUserId(ua.getUserId());
+		if(a1!=null)
+		{    a1.setShopName(a.getShopName());
+		a1.setCity(a.getCity());
+		a1.setZipCode(a.getZipCode());
+		a1.setCountry(a.getCountry());
+		a1.setState(a.getState());
+			addRepo.save(a1);
+		}
+		else {
+			a.setUser(u);
 		addRepo.save(a);
+		}
 		return "Address Added Successfully";
 	}
 
@@ -85,6 +97,5 @@ public class UserServiceImpl implements IUserServices {
 		return  addRepo.findByUserId(id);
 	}
 	
-	
-	
+		
 }

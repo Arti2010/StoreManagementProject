@@ -26,7 +26,7 @@
 // //   const user = { firstName, lastName, email, phone };
 
 
-   
+
 //     const init = () => {
 //         UserService.getAllSupplierBYProductId(productId)
 //           .then(response => {
@@ -41,7 +41,7 @@
 //       }
 //       //  const id=users[0].id;
 //     //   const user = { firstName:users[0].firstName, lastName:users[0].lastName, email:users[0].email, role:users[0].role, password:users[0].password, phone:users[0].phone };
-      
+
 //     //   console.log("printing supplierdetails",user);
 //     // console.log("printing id",id)
 //       useEffect(() => {
@@ -62,9 +62,9 @@
 //                 <th>FirstName</th>
 //                 <th>LastName</th>
 //                 <th>Email</th>
-                
+
 //                 <th>Phone</th>
-               
+
 //               </tr>
 //             </thead>
 //             <tbody>
@@ -74,7 +74,7 @@
 //                     <td>{user.firstName}</td>
 //                     <td>{user.lastName}</td>
 //                     <td>{user.email}</td>
-                   
+
 //                     <td>{user.phone}</td>
 //                     <td>
 //                       {/* <Link className="btn btn-info" to={`/users/edit/${user.id}`}>Update</Link> */}
@@ -88,11 +88,11 @@
 //               }
 //             </tbody>
 //           </table>
-         
+
 //         </div>
 //         <Link to={`/sales/supply`}>Back to List</Link><br/>
 //       </div>
-      
+
 // </div>
 //   );
 // }
@@ -178,8 +178,8 @@ const ShowSupplierDetails = () => {
           </table>
         </div>
       </div>
-      
-    <br/><br/><br/><br/> <Link className="btn btn-info" to={`/users/edit/${user.id}`}>Update</Link>
+
+      {/* <br/><br/><br/><br/> <Link className="btn btn-info" to={`/users/edit/${user.id}`}>Update</Link> */}
     </div>
 
   );

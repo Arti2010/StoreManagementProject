@@ -43,6 +43,7 @@ const CategoryDetails = () => {
       })
       .catch(error => {
         console.log('Something went wrong', error);
+        alert("first delete product under category then delete category");
       })
   }
 
